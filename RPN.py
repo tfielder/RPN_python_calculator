@@ -32,7 +32,6 @@ def run_calculator():
         if response == 'p':
             print_stack(stack)
         if valid_input(response):
-            print("you have valid input")
             add_to_stack(response, stack)
         ##if input_operator?(response):
             ##attempt_calculation(response)
@@ -40,7 +39,10 @@ def run_calculator():
             ##print('Try typing a number or an operator.')
 
 def valid_input(i):
-    True if input_zero(i) or input_operator(i) or input_number(i) or 'q' or 'i' or 'p' or 'c' else False
+    if input_number(i) or input_operator(i) or input_number(i) or 'q' or 'i' or 'p' or 'c':
+        return True
+    else:
+        return False
 
 def input_zero(i):
     True if i == '0' else False
@@ -60,7 +62,6 @@ def add_to_stack(i, stack):
         stack.append(i)
     if input_number(i):
         stack.append(float(i))
-    return stack
 
 def print_stack(stack):
     print('')
