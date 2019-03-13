@@ -34,7 +34,6 @@ def run_calculator():
         if valid_input(response):
             add_to_stack(response, stack)
         if input_operator(response):
-            print('you typed an operator')
             attempt_calculation(response)
         #if valid_input(response):
         #    print('Try typing a number or an operator.')
