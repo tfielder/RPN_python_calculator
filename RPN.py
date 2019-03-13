@@ -22,6 +22,7 @@ def print_instructions():
 
 def run_calculator():
     response = ''
+    stack = []
     while response != 'q':
         response = input()
         if response == 'i':
@@ -29,10 +30,10 @@ def run_calculator():
         if response == 'c':
             print("you are clearing a stack")
         if response == 'p':
-            print("you are printing the stack")
+            print_stack(stack)
         if valid_input(response):
             print("you have valid input")
-            ##add_to_stack(response)
+            add_to_stack(response, stack)
         ##if input_operator?(response):
             ##attempt_calculation(response)
         ##if !valid_input?(response):
@@ -50,6 +51,17 @@ def input_operator(i):
 def input_number(i):
     True if float(i) != 0 else False
 
+def add_to_stack(i, stack):
+    if input_zero(i):
+        stack.append(i)
+    if input_number(i):
+        stack.append(float(i))
+    return stack
+
+def print_stack(stack):
+    print('')
+    print(stack)
+    print('')
 
 def farwell_message():
     print('goodbye')
