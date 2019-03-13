@@ -28,7 +28,7 @@ def run_calculator():
         if response == 'i':
             print_instructions()
         if response == 'c':
-            print("you are clearing a stack")
+            stack.clear()
         if response == 'p':
             print_stack(stack)
         if valid_input(response):
@@ -39,15 +39,9 @@ def run_calculator():
             print('Try typing a number or an operator.')
 
 def valid_input(i):
-    if input_number(i) or input_operator(i) or input_number(i):
+    if input_number(i) or input_operator(i):
         return True
     elif i == "q" or i == "i" or i == "p" or i == "c":
-        return True
-    else:
-        return False
-
-def input_zero(i):
-    if i == '0':
         return True
     else:
         return False
@@ -66,8 +60,6 @@ def input_number(i):
         return False
 
 def add_to_stack(i, stack):
-    if input_zero(i):
-        stack.append(i)
     if input_number(i):
         stack.append(float(i))
 
@@ -78,7 +70,7 @@ def attempt_calculation(operator, stack):
         print('Cannot divide by zero')
     if valid_calculation(operator, stack) == False:
         return
-    #calculate(operator)
+    calculate(operator, stack)
 
 def enough_operands(stack):
     if len(stack) >= 2:
@@ -97,6 +89,29 @@ def valid_calculation(operator, stack):
         return True
     else:
         return False
+
+def calculate(operator, stack):
+    determine_calculation(operator, stack)
+    update_stack(stack)
+    print_result(stack)
+
+def determine_calculation(operator, stack):
+    if operator == '+':
+        stack[-2] = stack[-2] + stack[-1]
+    if operator == '-':
+        stack[-2] = stack[-2] - stack[-1]
+    if operator == '*':
+        stack[-2] = stack[-2] * stack[-1]
+    if operator == '/':
+        stack[-2] = stack[-2] / stack[-1]
+
+def update_stack(stack):
+    stack.pop()
+    if stack[-1] % 1 == 0:
+        stack[-1] = int(stack[-1])
+
+def print_result(stack):
+    print("=" + str(stack[-1]))
 
 def print_stack(stack):
     print('')
