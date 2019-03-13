@@ -33,10 +33,11 @@ def run_calculator():
             print_stack(stack)
         if valid_input(response):
             add_to_stack(response, stack)
-        ##if input_operator?(response):
-            ##attempt_calculation(response)
-        ##if !valid_input?(response):
-            ##print('Try typing a number or an operator.')
+        if input_operator(response):
+            print('you typed an operator')
+            attempt_calculation(response)
+        #if valid_input(response):
+        #    print('Try typing a number or an operator.')
 
 def valid_input(i):
     if input_number(i) or input_operator(i) or input_number(i) or 'q' or 'i' or 'p' or 'c':
@@ -45,10 +46,16 @@ def valid_input(i):
         return False
 
 def input_zero(i):
-    True if i == '0' else False
+    if i == '0':
+        return True
+    else:
+        return False
 
 def input_operator(i):
-    True if i == '-' or i == '+' or i == '*' or i == '/' else False
+    if i == '-' or i == '+' or i == '*' or i == '/':
+        return True
+    else:
+        return False
 
 def input_number(i):
     try:
@@ -62,6 +69,16 @@ def add_to_stack(i, stack):
         stack.append(i)
     if input_number(i):
         stack.append(float(i))
+
+def attempt_calculation(operator):
+    #if enough_operands:
+    #    print("Check your notation, there are not enough elements to calculate")
+    #if division_by_zero:
+    #   print('Cannot divide by zero')
+    #if valid_calculation == False:
+    #    return
+    #calculate(operator)
+    print('attempt calculation')
 
 def print_stack(stack):
     print('')
