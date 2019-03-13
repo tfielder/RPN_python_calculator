@@ -34,7 +34,7 @@ def run_calculator():
         if valid_input(response):
             add_to_stack(response, stack)
         if input_operator(response):
-            attempt_calculation(response)
+            attempt_calculation(response, stack)
         if valid_input(response) == False:
             print('Try typing a number or an operator.')
 
@@ -71,15 +71,20 @@ def add_to_stack(i, stack):
     if input_number(i):
         stack.append(float(i))
 
-def attempt_calculation(operator):
-    #if enough_operands:
-    #    print("Check your notation, there are not enough elements to calculate")
-    #if division_by_zero:
-    #   print('Cannot divide by zero')
+def attempt_calculation(operator, stack):
+    if enough_operands(stack) == False:
+        print("Check your notation, there are not enough elements to calculate")
+    # if division_by_zero:
+    #    print('Cannot divide by zero')
     #if valid_calculation == False:
     #    return
     #calculate(operator)
-    print('attempt calculation')
+
+def enough_operands(stack):
+    if len(stack) >= 2:
+        return True
+    else:
+        return False
 
 def print_stack(stack):
     print('')
