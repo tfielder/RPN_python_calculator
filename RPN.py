@@ -22,7 +22,4 @@ def print_instructions():
 def farwell_message():
     print('goodbye')
 
-
-
-
 if __name__ == '__main__': main()
