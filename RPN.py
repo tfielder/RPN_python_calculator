@@ -30,12 +30,25 @@ def run_calculator():
             print("you are clearing a stack")
         if response == 'p':
             print("you are printing the stack")
-        ##if valid_input?(response):
+        if valid_input(response):
+            print("you have valid input")
             ##add_to_stack(response)
         ##if input_operator?(response):
             ##attempt_calculation(response)
         ##if !valid_input?(response):
             ##print('Try typing a number or an operator.')
+
+def valid_input(i):
+    True if input_zero(i) or input_operator(i) or input_number(i) or 'q' or 'i' or 'p' or 'c' else False
+
+def input_zero(i):
+    True if i == '0' else False
+
+def input_operator(i):
+    True if i == '-' or i == '+' or i == '*' or i == '/' else False
+
+def input_number(i):
+    True if float(i) != 0 else False
 
 
 def farwell_message():
