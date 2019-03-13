@@ -75,9 +75,9 @@ def attempt_calculation(operator, stack):
     if enough_operands(stack) == False:
         print("Check your notation, there are not enough elements to calculate")
     if division_by_zero(operator, stack) == True:
-       print('Cannot divide by zero')
-    #if valid_calculation == False:
-    #    return
+        print('Cannot divide by zero')
+    if valid_calculation(operator, stack) == False:
+        return
     #calculate(operator)
 
 def enough_operands(stack):
@@ -88,6 +88,12 @@ def enough_operands(stack):
 
 def division_by_zero(operator, stack):
     if stack[-1] == 0 and operator == '/':
+        return True
+    else:
+        return False
+
+def valid_calculation(operator, stack):
+    if enough_operands(stack) and division_by_zero(operator, stack) == False:
         return True
     else:
         return False
