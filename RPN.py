@@ -49,7 +49,11 @@ def input_operator(i):
     True if i == '-' or i == '+' or i == '*' or i == '/' else False
 
 def input_number(i):
-    True if float(i) != 0 else False
+    try:
+        float(i)
+        return True
+    except:
+        return False
 
 def add_to_stack(i, stack):
     if input_zero(i):
