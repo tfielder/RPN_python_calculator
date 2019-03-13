@@ -35,11 +35,13 @@ def run_calculator():
             add_to_stack(response, stack)
         if input_operator(response):
             attempt_calculation(response)
-        #if valid_input(response):
-        #    print('Try typing a number or an operator.')
+        if valid_input(response) == False:
+            print('Try typing a number or an operator.')
 
 def valid_input(i):
-    if input_number(i) or input_operator(i) or input_number(i) or 'q' or 'i' or 'p' or 'c':
+    if input_number(i) or input_operator(i) or input_number(i):
+        return True
+    elif i == "q" or i == "i" or i == "p" or i == "c":
         return True
     else:
         return False
