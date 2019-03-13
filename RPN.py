@@ -3,7 +3,7 @@ def main():
     welcome_message()
     print_instructions()
     run_calculator()
-    farwell_message()
+    farewell_message()
 
 def welcome_message():
     print('')
@@ -118,7 +118,7 @@ def print_stack(stack):
     print(stack)
     print('')
 
-def farwell_message():
+def farewell_message():
     print('goodbye')
 
 if __name__ == '__main__': main()
