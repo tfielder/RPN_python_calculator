@@ -10,7 +10,7 @@
 ## To run:
 1. Go to https://github.com/tfielder/RPN_python_calculator.
 2. From your command line (on a linux based-system) and the directory of your choice run `git clone https://github.com/tfielder/RPN_python_calculator.git`.
-3. Change into the directory by running `cd RPN-Calculator`.
+3. Change into the directory by running `cd RPN_python_calculator`.
 4. (Make sure you have a Python version installed).
 5. Run `python RPN.py`.
 6. Enjoy the calculator.
